@@ -1,0 +1,132 @@
+*, *::after, *::before{
+    box-sizing: border-box;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+body{
+    background-image: url('FB_IMG_15894516095707768.jpg');
+    background-size:cover;
+    background-color: wheat; 
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    min-height: 100vh;
+    /* to remove a scrol bar */
+    overflow: hidden;
+    
+}
+
+.clock{
+    width: 300px;
+    height: 300px;
+    background-color: white;
+    border-radius: 50%;
+    border:5px solid purple;
+    position: relative;
+    
+}
+
+.pix{
+    padding: 20px;
+    background-image: url('FB_IMG_15894516095707768.jpg');
+    width: 400px;
+    height: 350px;
+    background-color: black;
+    border-radius: 15px;
+    align-items: center;
+    justify-content: center;
+    /* opacity: 20%; */
+}
+
+/* to position ur numbers round the clock */
+.clock .num{
+    /* by default rotation is set to zero */
+    --rotation: 0;
+    position: absolute;
+    width: 100%;
+    height:100%;
+    /*  background-color: brown; */
+    text-align: center;
+    transform: rotate(var(--rotation));
+    font-size: 3rem;
+}
+.clock .number1{--rotation: 30deg;}
+.clock .number2{--rotation: 60deg;}
+.clock .number3{--rotation: 90deg;}
+.clock .number4{--rotation: 120deg;}
+.clock .number5{--rotation: 150deg;}
+.clock .number6{--rotation: 180deg;}
+.clock .number7{--rotation: 210deg;}
+.clock .number8{--rotation: 240deg;}
+.clock .number9{--rotation: 270deg;}
+.clock .number10{--rotation: 300deg;}
+.clock .number11{--rotation: 330deg;}
+
+/* creating the hand of the clock */
+.clock .hand{
+    --rotation: 0;
+    position: absolute;
+    bottom: 50%;
+    left:50%;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    /* for placement to be ontop of another */
+    z-index:10;
+    /* background-color: black; */
+    /* to rotate at the middle  */
+    transform-origin: bottom;
+    transform: translateX(-50%) rotate(calc(var(--rotation) * 1deg));
+}
+
+
+
+/* making the spot at the center of the clock */
+.clock::after{
+content: '';
+position: absolute;
+background-color: purple;
+z-index: 11;
+width:15px;
+height: 15px;
+top:50%;
+left:50%;
+transform: translate(-50%, -50%);
+border-radius: 50%;
+}
+
+.clock::before{
+    content: '';
+    position: absolute;
+    background-image: url('IMG-20211204-WA0007 copy.jpg');
+    /* background-color: black; */
+    z-index: 8;
+    width:200px;
+    height: 200px;
+    top:50%;
+    left:50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    }
+
+
+
+.clock .hand.second{
+    width: 3px;
+    height: 45%;
+    background-color: red;
+    border: 1px solid red;
+}
+
+
+.clock .hand.minute{
+    width: 7px;
+    height: 40%;
+    background-color: black;
+    border: 1px solid purple;
+}
+
+.clock .hand.hour{
+    width: 10px;
+    height: 35%;
+    background-color: black;
+    border: 1px solid purple;
+}
